@@ -1,0 +1,30 @@
+
+cff-version: 1.2.0
+message: "If you use this software in research, please cite it."
+type: software
+
+title: "USGS Stage Peaks"
+
+authors:
+  - family-names: "Buitrago"
+    given-names: "Gonzalo"
+
+abstract: >-
+  Gap-aware USGS water-stage peak detection and statistical
+  flood threshold estimation. The package supports recursive
+  filtering, peak candidate ranking, and optional comparison
+  with NOAA/NWS Action Stage.
+
+version: 0.1.0
+
+repository-code: "https://github.com/GonzaloAlbertoForeroBuitrago/usgs-stage-peaks"
+
+license: Apache-2.0
+
+keywords:
+  - hydrology
+  - USGS
+  - flood analysis
+  - water stage
+  - peak detection
+  - Lyne-Hollick
