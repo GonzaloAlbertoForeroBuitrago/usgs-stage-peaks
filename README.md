@@ -31,21 +31,92 @@ The package is designed for:
 
 ## Installation
 
-After publication on PyPI:
+
+## Installation
+
+USGS Stage Peaks requires Python 3.11 or newer.
+
+### Option 1 — Install using Micromamba (recommended)
+
+Create a dedicated Python environment:
 
 ```bash
-pip install usgs-stage-peaks
+micromamba create -n usgs_stage_peaks \
+  -c conda-forge python=3.11 pip -y
 ```
 
-For local development:
+Activate the environment:
 
 ```bash
-git clone <repository-url>
-cd usgs_stage_peaks
+micromamba activate usgs_stage_peaks
+```
+
+Install USGS Stage Peaks from PyPI:
+
+```bash
+python -m pip install usgs-stage-peaks
+```
+
+All required dependencies, including NumPy, pandas,
+SciPy, PyArrow, and Plotly, are installed automatically.
+
+Verify the installation:
+
+```bash
+python -c "import usgs_stage_peaks; print(usgs_stage_peaks.__version__)"
+python -m pip check
+```
+
+### Option 2 — Install with pip
+
+If Python 3.11 or newer is already available:
+
+```bash
+python -m pip install usgs-stage-peaks
+```
+
+### Option 3 — Install from GitHub for development
+
+Clone the repository:
+
+```bash
+git clone https://github.com/GonzaloAlbertoForeroBuitrago/usgs-stage-peaks.git
+cd usgs-stage-peaks
+```
+
+Create and activate a development environment:
+
+```bash
+micromamba create -n usgs_stage_peaks_dev \
+  -c conda-forge python=3.11 pip -y
+
+micromamba activate usgs_stage_peaks_dev
+```
+
+Install the package with development dependencies:
+
+```bash
 python -m pip install -e ".[dev]"
 ```
 
-Replace `<repository-url>` with the published repository address.
+Run the tests:
+
+```bash
+python -m pytest -v
+```
+
+Some integration tests require locally stored USGS
+research datasets and are skipped when unavailable.
+
+### Verify the public API
+
+```python
+import usgs_stage_peaks as usp
+
+print("Version:", usp.__version__)
+print("Pipeline available:", callable(usp.process_stage_station))
+```
+
 
 ## Input data
 
