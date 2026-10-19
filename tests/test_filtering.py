@@ -95,7 +95,10 @@ def test_isolated_peak_is_preserved():
         "Stage_ft": [25.0, 27.0, 29.45, 37.52],
     })
 
-    segmented, _ = segment_stage_observations(data)
+    segmented, _ = segment_stage_observations(
+        data,
+        expected_interval_minutes=20,
+    )
     filtered = filter_stage_segments(segmented)
 
     peak = filtered.loc[filtered["Stage_ft"].idxmax()]

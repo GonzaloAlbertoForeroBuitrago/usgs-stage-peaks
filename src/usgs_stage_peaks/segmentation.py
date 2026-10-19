@@ -1,7 +1,7 @@
 
 """Gap-aware segmentation of USGS water-stage observations.
 
-Intervals up to 20 minutes are treated as continuous.
+Intervals up to 60 minutes are treated as continuous.
 Longer intervals create independent filtering segments.
 
 No interpolation or resampling is performed.
@@ -18,7 +18,7 @@ REQUIRED_COLUMNS = ("datetime", "Stage_ft")
 
 def segment_stage_observations(
     observations: pd.DataFrame,
-    expected_interval_minutes: float = 20.0,
+    expected_interval_minutes: float = 60.0,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Divide observations into continuous processing segments.
 

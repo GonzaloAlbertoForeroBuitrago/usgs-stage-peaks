@@ -94,7 +94,7 @@ def process_stage_station(
     *,
     site_id: str,
     action_stage_ft: float | None = None,
-    max_interval_minutes: float = 20.0,
+    max_interval_minutes: float = 60.0,
     baseflow_alpha: float = 0.987,
     top_n: int = 200,
     window_width_ft: float = 1.0,

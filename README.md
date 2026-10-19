@@ -145,12 +145,17 @@ The input must contain valid timestamps and finite water-stage values.
 
 Observations are divided into continuous processing segments.
 
-By default, consecutive observations separated by 20 minutes or
-less remain in the same segment.
+By default, consecutive observations separated by 60 minutes or less remain in the same segment.
 
-Intervals greater than 20 minutes create a new segment.
+Intervals greater than 60 minutes create a new segment.
 
-No interpolation or resampling is performed.
+This rule accommodates USGS stations recording observations at 5, 10, 15, 30, or 60-minute intervals, including stations with changing sampling frequencies.
+
+No interpolation, resampling, or automatic sampling-frequency detection is performed.
+
+The maximum permitted interval can be configured using max_interval_minutes in the public processing pipeline.
+
+Scientific limitation: A gap of up to 60 minutes is treated as continuous even when a station normally records at shorter intervals.
 
 ### 2. Recursive filtering
 
@@ -250,7 +255,7 @@ result = process_stage_station(
     output_directory="outputs/08165500",
     site_id="08165500",
     action_stage_ft=None,
-    max_interval_minutes=20,
+    max_interval_minutes=60,
     baseflow_alpha=0.987,
     top_n=200,
     window_width_ft=1.0,

@@ -15,7 +15,7 @@ abstract: >-
   filtering, peak candidate ranking, and optional comparison
   with NOAA/NWS Action Stage.
 
-version: 0.1.0
+version: 0.2.0
 
 repository-code: "https://github.com/GonzaloAlbertoForeroBuitrago/usgs-stage-peaks"
 

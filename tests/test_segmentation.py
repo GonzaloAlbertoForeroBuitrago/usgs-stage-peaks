@@ -17,7 +17,10 @@ def test_continuous_series():
         "Stage_ft": [8.0 + i * 0.1 for i in range(10)],
     })
 
-    segmented, summary = segment_stage_observations(data)
+    segmented, summary = segment_stage_observations(
+        data,
+        expected_interval_minutes=20,
+    )
 
     assert len(segmented) == 10
     assert len(summary) == 1
@@ -37,7 +40,10 @@ def test_isolated_peak_is_preserved():
         "Stage_ft": [28.0, 29.45, 37.52, 8.89, 9.0, 9.1],
     })
 
-    segmented, summary = segment_stage_observations(data)
+    segmented, summary = segment_stage_observations(
+        data,
+        expected_interval_minutes=20,
+    )
 
     # Under the 20-minute continuity rule:
     # Segment 1: 09:30, 09:35
@@ -96,7 +102,10 @@ def test_intervals_up_to_20_minutes_are_continuous():
         "Stage_ft": [8, 9, 10, 11, 12, 13],
     })
 
-    segmented, summary = segment_stage_observations(data)
+    segmented, summary = segment_stage_observations(
+        data,
+        expected_interval_minutes=20,
+    )
 
     assert len(summary) == 2
     assert summary["observations"].tolist() == [5, 1]

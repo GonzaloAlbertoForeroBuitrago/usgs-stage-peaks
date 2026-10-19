@@ -59,7 +59,7 @@ def main() -> None:
         top_200,
         site_id=SITE_ID,
         title="Historical Water Stage — Top 200 Peak Candidates",
-        max_interval_minutes=20,
+        max_interval_minutes=60,
     )
 
     fig1.write_html(
@@ -79,7 +79,7 @@ def main() -> None:
         site_id=SITE_ID,
         title="Historical Water Stage — Filtered Peak Candidates",
         threshold_ft=threshold,
-        max_interval_minutes=20,
+        max_interval_minutes=60,
     )
 
     fig2.write_html(

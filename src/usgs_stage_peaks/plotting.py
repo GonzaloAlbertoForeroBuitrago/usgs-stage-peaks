@@ -18,7 +18,7 @@ def create_stage_peak_figure(
     site_id: str,
     title: str,
     threshold_ft: float | None = None,
-    max_interval_minutes: float = 20.0,
+    max_interval_minutes: float = 60.0,
 ) -> go.Figure:
     """Plot historical stage and selected observed peak candidates.
 

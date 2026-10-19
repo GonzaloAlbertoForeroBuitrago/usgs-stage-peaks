@@ -4,7 +4,7 @@
 Workflow
 --------
 1. Load validated USGS observations.
-2. Segment observations using a maximum 20-minute interval.
+2. Segment observations using a maximum 60-minute interval.
 3. Apply independent Lyne-Hollick recursive filtering.
 4. Detect events and preserve original event metrics.
 5. Select the 200 highest observed peak candidates.
@@ -44,7 +44,7 @@ ROOT = Path.home() / "Documents" / "usgs_mrms_research"
 SITE_ID = "08165500"
 STATE = "TX"
 
-MAX_INTERVAL_MINUTES = 20
+MAX_INTERVAL_MINUTES = 60
 BASEFLOW_ALPHA = 0.987
 TOP_N = 200
 WINDOW_WIDTH_FT = 1.0
